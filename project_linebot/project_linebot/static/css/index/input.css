@@ -1,0 +1,188 @@
+#input {
+    height: 100vh;
+    min-height: 100vh;
+    background-image:
+        linear-gradient(to bottom, #858b85a6, #858b85a6),
+        url('../../img/index/input_area.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.input>h1 {
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin: 50px auto 30px auto;
+    padding: 0 10px;
+}
+
+input {
+    padding: 0 0 0 20px;
+    font-size: 18px;
+    padding: 10px 20px 10px 20px;
+    display: block;
+    width: 260px;
+    border: none;
+    border-bottom: 1px solid #757575;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus~label,
+input:valid~label {
+    font-weight: bold;
+    top: -20px;
+    left: 10px;
+    font-size: 16px;
+    color: #1f9e87;
+    letter-spacing: 2px;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #1f9e87;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 45%;
+}
+
+.bar:after {
+    right: 45%;
+}
+
+/* active state */
+input:focus~.bar:before,
+input:focus~.bar:after {
+    width: 50%;
+}
+
+.button_group {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.button_group button,
+.button_group a {
+    width: 100px;
+    margin: 5px 10px;
+    padding: 10px 0;
+    border-radius: 2.5rem;
+    background: rgba(0, 0, 0, 0);
+    position: relative;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    opacity: 1;
+    background-color: #ffffff;
+    border: 1px solid #a5d1b7;
+}
+
+.button_group button>span,
+.button_group a>span {
+    color: #1f9e87;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.button_group button:hover,
+.button_group a:hover {
+    animation: rotate 0.7s ease-in-out both;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    input {
+        width: 360px;
+    }
+
+    .bar:before {
+        left: 45%;
+    }
+
+    .bar:after {
+        right: 45%;
+    }
+
+    .bar {
+        width: 400px;
+    }
+}

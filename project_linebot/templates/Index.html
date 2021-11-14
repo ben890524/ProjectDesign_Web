@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+    <title>健康資訊測試網站</title>
+    <link rel="LOGO icon" href="{% static "img/LOGO.png" %}">
+    <!-- * FontAwesome * -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href={% static "css/style.css" %} type ="text/css"/>
+    <link rel="stylesheet" href={% static "css/index/navbar.css" %} type ="text/css"/>
+    <link rel="stylesheet" href={% static "css/index/intro.css" %} type ="text/css"/>
+    <link rel="stylesheet" href={% static "css/index/input.css" %} type ="text/css"/>
+    <link rel="stylesheet" href={% static "css/index/result.css" %} type ="text/css"/>
+</head>
+    <body>
+        <section id="navbar">
+            <div id="nav_mobile">
+                <button id="burger" class="open-main-nav">
+                    <span class="burger"></span>
+                    <span class="burger-text">Menu</span>
+                </button>
+                <div id="mobile_container">
+                    <nav class="main-nav" id="main-nav">
+                        <ul>
+                            <li>
+                                <a href="#">首頁</a>
+                            </li>
+                            <li>
+                                <a href="#">專題動機</a>
+                            </li>
+                            <li>
+                                <a href="#">模型介紹</a>
+                            </li>
+                            <li>
+                                <a href="#input">訊息判斷</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <nav id="nav_browser">
+                <div class="nav_brand">
+                    <img src="{% static "img/LOGO.png" %}" alt="首頁">
+                </div>
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">專題動機</a></li>
+                    <li><a href="#">模型介紹</a></li>
+                    <li><a href="#input">訊息判斷</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section id="index">
+            <div class="index_intro">
+                <div class="intro_title">
+                    <div class="brand">
+                        <img src="{% static "img/LOGO.png" %}" alt="">
+                    </div>
+                    <div class="title">
+                        <img src="{% static "img/titleword.png" %}" alt="">
+                    </div>
+                </div>
+                <div class="intro_content">
+                    <p>
+                        這是一個可以輸入大便得到大便...<br>和大便
+                    </p>
+                </div>
+                <div class="guide" onclick="goToInput()">
+                    <span>趕緊試試</span>
+                    <i class="fas fa-angle-double-down"></i>
+                </div>
+            </div>
+        </section>
+        <section id="input">
+            <div class="intro_title">
+                <div class="brand">
+                    <img src="{% static "img/LOGO.png" %}" alt="">
+                </div>
+                <div class="title">
+                    <img src="{% static "img/titleword.png" %}" alt="">
+                </div>
+            </div>
+            <div class="input">
+                <form id="input_form" method="post">
+                    {% csrf_token %}
+                    <div class="group">
+                        <h1>請輸入要判斷的健康訊息：</h1> 
+                        <input type="text" name="input_text" id="input_text" placeholder="輸入訊息" />
+                        <span class="bar"></span>
+                    </div>
+                    <div class="button_group">
+                        <button type="submit" class="input_text" id="input_button"><span>輸   入</span></button>
+                        <a href="javascript: void(0);" class="delete_text" onclick="clearInput()"><span>清   空</span></a>
+                    </div>
+                </form>
+                <div class="message">
+                    {{gru_prediction}}
+                    {{lstm_prediction}}
+                    {{bilstm_prediction}}
+                </div>
+            </div>
+        </section>
+        <section id="result">
+            <div id="loading">
+                <div class="loading">
+                    <div class="spinner">
+                        <img src="{% static "img/input/spinner.gif" %}" alt="">
+                    </div>
+                    <h2>Loading...</h2>                    
+                </div>
+            </div>
+            <div id="showing_result">
+                <div class="result_area">
+                    <span class="close" onclick="closeResult()"><i class="fas fa-times"></i></span>
+                    <h1>判斷結果</h1>
+                    <div id="result_content">
+                        <div class="result">
+                            <span>您輸入的訊息為：</span>
+                            <p id="show_input">0</p>
+                        </div>
+                        <div class="result">
+                            <span>GRU模型：</span>
+                            <span id="show_gru">0</span>
+                        </div>
+                        <div class="result">
+                            <span>LSTM模型：</span>
+                            <span id="show_lstm">0</span>
+                        </div>
+                        <div class="result">
+                            <span>雙向LSTM模型：</span>
+                            <span id="show_bilstm">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="showing_background" class="showing"></div>
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="{% static "js/navbar.js" %}"></script>
+        <script src="{% static "js/index.js" %}"></script>
+        <script src="{% static "js/input.js" %}"></script>
+    </body>
+</html>

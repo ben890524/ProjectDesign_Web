@@ -1,0 +1,131 @@
+.index_intro {
+    height: 100vh;
+    min-height: 100vh;
+    background-image:
+        linear-gradient(to bottom, #858b85a6, #858b85a6),
+        url('../../img/index/index_intro.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.intro_title {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    padding: 175px 0 25px 0;
+}
+
+.intro_title .brand {
+    width: 75px;
+    margin: 0 auto;
+}
+
+.intro_title .brand>img,
+.intro_title .title>img {
+    width: 100%;
+}
+
+.intro_title .title {
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.intro_content {
+    padding: 0;
+    margin: 0;
+}
+
+.intro_content>p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.guide {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: -ms-grid;
+    display: grid;
+    text-align: center;
+}
+
+.guide>span {
+    font-weight: bold;
+    font-size: 18px;
+}
+.guide>i{
+    padding: 15px 0 0 0;
+    width: 100px;
+    font-weight: bold;
+    font-size: 80px;
+    animation: arrow 1.5s ease-in-out infinite;
+}
+
+@keyframes arrow {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .intro_title {
+        width: 350px;
+        padding: 175px 0 50px 0;
+    }
+
+    .intro_title .brand {
+        width: 80px;
+        padding: 0 10px 0 0;
+    }
+
+    .intro_title .title {
+        width: 330px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .index_intro {
+        background-image:
+            linear-gradient(to bottom, #858b85a6, #858b85a6),
+            url('../../img/index/index_intro.webp');
+    }
+
+    .intro_title {
+        width: 500px;
+        padding: 175px 0 50px 0;
+    }
+
+    .intro_title .brand {
+        width: 100px;
+        padding: 0 10px 0 0;
+    }
+
+    .intro_title .title {
+        width: 400px;
+    }
+    .intro_content>p {
+        font-size: 28px;
+    }
+    .guide>span{
+        font-size: 24px;
+    }
+}

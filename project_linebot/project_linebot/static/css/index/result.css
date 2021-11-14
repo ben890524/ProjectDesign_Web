@@ -1,0 +1,143 @@
+#result {
+    margin: 0;
+    padding: 0;
+}
+
+#result #loading {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#result #loading.active {
+    display: inline-flex;
+}
+
+#result .loading .spinner {
+    position: inherit;
+    width: 100px;
+    height: 100px;
+}
+
+#result .loading>h2 {
+    color: whitesmoke;
+}
+
+#result .loading .spinner>img {
+    width: 100%;
+}
+
+#result #showing_result {
+    width: 150px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.25s all ease-in;
+    border-radius: 0.25rem;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+#result #showing_result.active {
+    width: 300px;
+    height: 400px;
+    background: rgba(255, 255, 255, 1);
+    border: 2.5px solid #a5d1b7;
+}
+
+#result #showing_result .result_area {
+    display: none;
+    width: 100%;
+}
+
+#result #showing_result.active .result_area {
+    display: inline;
+}
+
+#result #showing_result.active .result_area>h1 {
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#result #showing_result #result_content {
+    opacity: 0;
+    transition: 1s all;
+    padding: 5px;
+}
+
+#result #showing_result #result_content.active {
+    opacity: 1;
+    padding: 20px;
+}
+
+#result #showing_result #result_content .result {
+    color: #1f9e87;
+    font-weight: bold;
+    padding: 5px 0;
+    text-align: center;
+}
+
+#result #showing_result #result_content .result>p {
+    font-size: 20px;
+    text-align: center;
+    line-height: 0.5;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #a5d1b7;
+}
+
+#result .showing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+#result .showing.active {
+    display: inline;
+}
+
+@media screen and (min-width: 768px) {
+    #result #showing_result.active {
+        width: 500px;
+        transition: 0.25s all;
+    }
+
+    #result #showing_result.active .result_area>h1 {
+        font-size: 32px;
+    }
+
+    #result #showing_result #result_content .result {
+        font-size: 20px;
+    }
+
+    #result #showing_result #result_content .result>p {
+        font-size: 24px;
+    }
+}
