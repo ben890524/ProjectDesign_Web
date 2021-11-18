@@ -45,7 +45,6 @@
     transform: translate(-50%, -50%);
     transition: 0.25s all ease-in;
     border-radius: 0.25rem;
-    overflow-y: auto;
     z-index: 100;
 }
 
@@ -75,6 +74,8 @@
     opacity: 0;
     transition: 1s all;
     padding: 5px;
+    overflow-y: auto;
+    height: 300px;
 }
 
 #result #showing_result #result_content.active {
@@ -88,11 +89,26 @@
     padding: 5px 0;
     text-align: center;
 }
-
+#result #showing_result #result_content #ref{
+    font-size: 22px;
+    font-weight: bold;
+}
 #result #showing_result #result_content .result>p {
     font-size: 20px;
     text-align: center;
-    line-height: 0.5;
+    line-height: 1.25;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+#result #showing_result #result_content .result>a {
+    display: none;
+    color: #145e50;
+    text-decoration: none;
+}
+
+#result #showing_result #result_content .result>a.active {
+    display: inline;
 }
 
 .close {
